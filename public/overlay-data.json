@@ -1,0 +1,1309 @@
+{
+  "app_id": "revenuestack_crm",
+  "built_at": "2026-08-29T20:51:27.672Z",
+  "total_fields": 23,
+  "fields": [
+    {
+      "id": "companies.address",
+      "table": "companies",
+      "column": "address",
+      "definition": "Street address of the company's primary business location.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyAside.tsx",
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "address",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "Low",
+        "pii_rationale": "A business street address, not a personal residence — low individual privacy risk, but still a physical location.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Business-facing data, low sensitivity. No masking required for internal sales use."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(1)"
+        ]
+      }
+    },
+    {
+      "id": "companies.city",
+      "table": "companies",
+      "column": "city",
+      "definition": "City where the company's primary business location is based.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyAside.tsx",
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "city",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "Low",
+        "pii_rationale": "Business location component, not personal address data.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Low sensitivity, part of company address block."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(2)"
+        ]
+      }
+    },
+    {
+      "id": "companies.country",
+      "table": "companies",
+      "column": "country",
+      "definition": "Country where the company's primary business location is based.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyAside.tsx",
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "country",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Administrative/geographic classification field, not personal data.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Also relevant for data residency / jurisdiction reporting if the company grows an EU customer base."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(5)"
+        ]
+      }
+    },
+    {
+      "id": "companies.description",
+      "table": "companies",
+      "column": "description",
+      "definition": "Free-text summary of what the company does, used internally by sales reps.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyInputs.tsx",
+          "src/components/atomic-crm/deals/DealInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "p"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "description",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Business description, no personal data by design — but free text, so a rep could paste personal info by mistake.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Free-text field: periodic spot-check recommended to catch accidental PII entry."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)"
+        ]
+      }
+    },
+    {
+      "id": "companies.name",
+      "table": "companies",
+      "column": "name",
+      "definition": "Legal or commonly-used name of the company, the primary identifier shown across the CRM.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyInputs.tsx",
+          "src/components/atomic-crm/contacts/ContactListContent.tsx",
+          "src/components/atomic-crm/contacts/ContactShow.tsx",
+          "src/components/atomic-crm/contacts/TagsList.tsx",
+          "src/components/atomic-crm/dashboard/LatestNotes.tsx",
+          "src/components/atomic-crm/deals/DealInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "dashboard",
+          "contacts_list",
+          "contacts_show",
+          "companies_list",
+          "companies_show",
+          "deals_list",
+          "deals_show"
+        ],
+        "dom_tags_observed": [
+          "a",
+          "span",
+          "h6",
+          "h5"
+        ],
+        "dom_occurrences_in_crawl": 114
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "name",
+        "column_type": "text",
+        "nullable": false,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Business entity name, not personal data.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Business-critical field — highest usage in the app (114 occurrences across 7 pages). Strong candidate for the first human-certified field given its visibility and central role in the data model."
+      },
+      "selectors_by_route": {
+        "dashboard": [
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(5) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(7) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(9) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(11) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(13) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(15) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(17) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(19) > div > span:nth-of-type(2) > a"
+        ],
+        "contacts_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(3) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(6) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(9) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(10) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(7) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(4) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(8) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(5) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > a > div:nth-of-type(1) > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(11) > a > div > div:nth-of-type(2) > span"
+        ],
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(1) > div > span > a > span"
+        ],
+        "companies_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(4) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(6) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(7) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(2) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(1) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(3) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(5) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(8) > div > div:nth-of-type(1) > div > h6"
+        ],
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > h5",
+          "div#radix-«r1m»-content-activity > div > div:nth-of-type(1) > div > span:nth-of-type(2) > a"
+        ],
+        "deals_list": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > div > p > span"
+        ],
+        "deals_show": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > div > p > span"
+        ]
+      }
+    },
+    {
+      "id": "companies.phone_number",
+      "table": "companies",
+      "column": "phone_number",
+      "definition": "General business phone line for the company.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyAside.tsx",
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "phone_number",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "Low",
+        "pii_rationale": "A shared business line, not an individual's personal phone number.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Distinguish from contacts.phone_jsonb, which is a named individual's personal number and carries higher sensitivity."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > span"
+        ]
+      }
+    },
+    {
+      "id": "companies.revenue",
+      "table": "companies",
+      "column": "revenue",
+      "definition": "Estimated annual revenue of the company, used to qualify deal size and segment.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyAside.tsx",
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "revenue",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Business financial data about the company, not a natural person — not PII, but commercially sensitive.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "VP of Sales",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Business-confidential: recommend restricting export/visibility to sales + finance roles, even though it is not personal data."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(2) > span"
+        ]
+      }
+    },
+    {
+      "id": "companies.sector",
+      "table": "companies",
+      "column": "sector",
+      "definition": "Industry classification of the company (e.g. Software, Manufacturing, FinTech).",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "dashboard",
+          "contacts_list",
+          "companies_list",
+          "deals_list",
+          "deals_show"
+        ],
+        "dom_tags_observed": [
+          "a",
+          "span",
+          "h6",
+          "p"
+        ],
+        "dom_occurrences_in_crawl": 42
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "sector",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Categorical business classification.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Used for segmentation/reporting; keep values on a controlled list to avoid free-text drift."
+      },
+      "selectors_by_route": {
+        "dashboard": [
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(5) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(9) > div > span:nth-of-type(2) > a",
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(11) > div > span:nth-of-type(2) > a"
+        ],
+        "contacts_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(3) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(10) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(7) > a > div > div:nth-of-type(2) > span"
+        ],
+        "companies_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(4) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(7) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(2) > div > div:nth-of-type(1) > div > h6"
+        ],
+        "deals_list": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div > div > p > span"
+        ],
+        "deals_show": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div > div > p > span"
+        ]
+      }
+    },
+    {
+      "id": "companies.size",
+      "table": "companies",
+      "column": "size",
+      "definition": "Employee headcount bracket for the company, used for segmentation.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyAside.tsx",
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_list",
+          "deals_list",
+          "deals_show"
+        ],
+        "dom_tags_observed": [
+          "button",
+          "p"
+        ],
+        "dom_occurrences_in_crawl": 9
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "size",
+        "column_type": "smallint",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Aggregate business metric, not personal data.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Stored as a numeric code mapped to a bracket in the UI — verify the code-to-label mapping stays documented if it changes."
+      },
+      "selectors_by_route": {
+        "companies_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(1) > div > button:nth-of-type(5)"
+        ],
+        "deals_list": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > p"
+        ],
+        "deals_show": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > p"
+        ]
+      }
+    },
+    {
+      "id": "companies.website",
+      "table": "companies",
+      "column": "website",
+      "definition": "Public website URL of the company.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyAside.tsx",
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "a"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "website",
+        "column_type": "extensions.citext",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Public business information.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Also used as the source for the automatic favicon/logo fetch trigger (company_saved trigger in 04_triggers.sql)."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a"
+        ]
+      }
+    },
+    {
+      "id": "companies.zipcode",
+      "table": "companies",
+      "column": "zipcode",
+      "definition": "Postal code of the company's primary business location.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyAside.tsx",
+          "src/components/atomic-crm/companies/CompanyInputs.tsx"
+        ],
+        "also_exposed_via_view": "companies_summary",
+        "seen_on_ui_routes": [
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "companies",
+        "column": "zipcode",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "Low",
+        "pii_rationale": "Business address component; low individual privacy risk on its own.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Part of the company address block."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(3)"
+        ]
+      }
+    },
+    {
+      "id": "contact_notes.text",
+      "table": "contact_notes",
+      "column": "text",
+      "definition": "Free-text note a sales rep writes about a contact (call summary, meeting notes, etc.).",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/notes/NoteInputs.tsx",
+          "src/components/atomic-crm/tasks/TaskFormContent.tsx"
+        ],
+        "also_exposed_via_view": null,
+        "seen_on_ui_routes": [
+          "dashboard"
+        ],
+        "dom_tags_observed": [
+          "p"
+        ],
+        "dom_occurrences_in_crawl": 2
+      },
+      "source_db_lineage": {
+        "table": "contact_notes",
+        "column": "text",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "High",
+        "pii_rationale": "Unstructured free text written about a named individual — reps can and do record personal details, opinions, and sensitive context here.",
+        "team_owner": "Sales",
+        "individual_owner_role": "Sales Rep (author) / Data Protection Officer (oversight)",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Highest-risk free-text field discovered — recommend a data retention policy and periodic review, since content is entirely rep-controlled and unvalidated."
+      },
+      "selectors_by_route": {
+        "dashboard": [
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div:nth-of-type(2) > a > p"
+        ]
+      }
+    },
+    {
+      "id": "contacts.background",
+      "table": "contacts",
+      "column": "background",
+      "definition": "Short bio field describing how the sales team met this contact and relevant personal context.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/contacts/ContactBackgroundInfo.tsx",
+          "src/components/atomic-crm/contacts/ContactInputs.tsx"
+        ],
+        "also_exposed_via_view": "contacts_summary",
+        "seen_on_ui_routes": [
+          "contacts_show"
+        ],
+        "dom_tags_observed": [
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 1
+      },
+      "source_db_lineage": {
+        "table": "contacts",
+        "column": "background",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "Medium",
+        "pii_rationale": "Free-text personal context about a named individual (how/where they met, personal notes) — not a direct identifier, but can carry sensitive personal detail.",
+        "team_owner": "Sales",
+        "individual_owner_role": "Sales Rep (author) / Data Protection Officer (oversight)",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Same free-text risk profile as contact_notes.text, scoped to the contact record itself."
+      },
+      "selectors_by_route": {
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(1) > span"
+        ]
+      }
+    },
+    {
+      "id": "contacts.company_name",
+      "table": "contacts",
+      "column": "company_name",
+      "definition": "Name of the company this contact works for, joined from the companies table for display convenience.",
+      "is_calculated": true,
+      "calculation_rule": "companies.name via contacts.company_id — joined, not stored on contacts",
+      "dependencies": {
+        "rendered_by_components": [],
+        "also_exposed_via_view": "contacts_summary",
+        "seen_on_ui_routes": [
+          "contacts_list",
+          "contacts_show",
+          "companies_list",
+          "companies_show",
+          "deals_list",
+          "deals_show"
+        ],
+        "dom_tags_observed": [
+          "span",
+          "h6",
+          "h5",
+          "a"
+        ],
+        "dom_occurrences_in_crawl": 39
+      },
+      "source_db_lineage": {
+        "table": "contacts",
+        "column": "company_name",
+        "column_type": "unknown (not a raw table column — likely view-only)",
+        "nullable": null,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "Low",
+        "pii_rationale": "Reveals a person's employer, an indirect identifier when combined with the contact's name, but not sensitive on its own.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "This is a VIEW-COMPUTED field, not a real column — governance of the underlying data lives on companies.name and contacts.company_id, not here."
+      },
+      "selectors_by_route": {
+        "contacts_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > a > div:nth-of-type(1) > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(11) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(3) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(4) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(5) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(6) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(9) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(7) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(8) > a > div > div:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(10) > a > div > div:nth-of-type(2) > span"
+        ],
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(1) > div > span > a > span"
+        ],
+        "companies_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(8) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(4) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(1) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(5) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(6) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(2) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(3) > div > div:nth-of-type(1) > div > h6",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(7) > div > div:nth-of-type(1) > div > h6"
+        ],
+        "companies_show": [
+          "main#main-content > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > h5",
+          "div#radix-«r1m»-content-activity > div > div:nth-of-type(1) > div > span:nth-of-type(2) > a"
+        ],
+        "deals_list": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p > span"
+        ],
+        "deals_show": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p > span",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p > span"
+        ]
+      }
+    },
+    {
+      "id": "contacts.email_jsonb",
+      "table": "contacts",
+      "column": "email_jsonb",
+      "definition": "Email address(es) for this contact, stored as a list of {email, type} entries (Work/Home/Other).",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/contacts/ContactInputs.tsx",
+          "src/components/atomic-crm/contacts/ContactPersonalInfo.tsx"
+        ],
+        "also_exposed_via_view": "contacts_summary",
+        "seen_on_ui_routes": [
+          "contacts_show"
+        ],
+        "dom_tags_observed": [
+          "span",
+          "a"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "contacts",
+        "column": "email_jsonb",
+        "column_type": "jsonb",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "High",
+        "pii_rationale": "Direct personal identifier (GDPR Art. 4) — uniquely identifies a natural person.",
+        "team_owner": "Sales",
+        "individual_owner_role": "Data Protection Officer",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Recommend masking in exports/reports for non-owning sales reps. Lowercased automatically on save (see 10_lowercase_contact_emails trigger)."
+      },
+      "selectors_by_route": {
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div > span:nth-of-type(2)",
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div > a"
+        ]
+      }
+    },
+    {
+      "id": "contacts.first_name",
+      "table": "contacts",
+      "column": "first_name",
+      "definition": "First name of the contact.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/activity/ActivityLogContactNoteCreated.tsx",
+          "src/components/atomic-crm/contacts/ContactInputs.tsx",
+          "src/components/atomic-crm/misc/CreateSheet.tsx",
+          "src/components/atomic-crm/misc/EditSheet.tsx",
+          "src/components/atomic-crm/sales/SalesInputs.tsx",
+          "src/components/atomic-crm/sales/SalesList.tsx",
+          "src/components/atomic-crm/settings/ProfilePage.tsx"
+        ],
+        "also_exposed_via_view": "contacts_summary",
+        "seen_on_ui_routes": [
+          "dashboard",
+          "contacts_list",
+          "contacts_show",
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "a",
+          "span",
+          "div",
+          "h5"
+        ],
+        "dom_occurrences_in_crawl": 23
+      },
+      "source_db_lineage": {
+        "table": "contacts",
+        "column": "first_name",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "High",
+        "pii_rationale": "Direct personal identifier — a person's name.",
+        "team_owner": "Sales",
+        "individual_owner_role": "Data Protection Officer",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Note: react_components list also includes sales/ files because the 'sales' table (internal users) has its own unrelated first_name column with the same name — governance here is scoped strictly to contacts.first_name."
+      },
+      "selectors_by_route": {
+        "dashboard": [
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > div > span:nth-of-type(2) > a",
+          "div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > div > span:nth-of-type(2) > span > a > span:nth-of-type(1)"
+        ],
+        "contacts_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > a > div:nth-of-type(1) > div",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > a > div:nth-of-type(1) > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(3) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(4) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(5) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(6) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(7) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(8) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(9) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(10) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(11) > a > div > div:nth-of-type(1)"
+        ],
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(1) > h5"
+        ],
+        "companies_show": [
+          "div#radix-«r1m»-content-activity > div > div:nth-of-type(5) > div > span:nth-of-type(2) > a",
+          "div#radix-«r1m»-content-activity > div > div:nth-of-type(7) > div > span:nth-of-type(2) > a"
+        ]
+      }
+    },
+    {
+      "id": "contacts.last_name",
+      "table": "contacts",
+      "column": "last_name",
+      "definition": "Last name of the contact.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/activity/ActivityLogContactNoteCreated.tsx",
+          "src/components/atomic-crm/contacts/ContactInputs.tsx",
+          "src/components/atomic-crm/misc/CreateSheet.tsx",
+          "src/components/atomic-crm/misc/EditSheet.tsx",
+          "src/components/atomic-crm/sales/SalesInputs.tsx",
+          "src/components/atomic-crm/sales/SalesList.tsx",
+          "src/components/atomic-crm/settings/ProfilePage.tsx"
+        ],
+        "also_exposed_via_view": "contacts_summary",
+        "seen_on_ui_routes": [
+          "dashboard",
+          "contacts_list",
+          "contacts_show",
+          "companies_show"
+        ],
+        "dom_tags_observed": [
+          "a",
+          "span",
+          "div",
+          "h5"
+        ],
+        "dom_occurrences_in_crawl": 23
+      },
+      "source_db_lineage": {
+        "table": "contacts",
+        "column": "last_name",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "High",
+        "pii_rationale": "Direct personal identifier — a person's name.",
+        "team_owner": "Sales",
+        "individual_owner_role": "Data Protection Officer",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Same file-attribution caveat as contacts.first_name (sales/ files reflect the sales table's own unrelated column, not this one)."
+      },
+      "selectors_by_route": {
+        "dashboard": [
+          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > div > span:nth-of-type(2) > a",
+          "div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > div > span:nth-of-type(2) > span > a > span:nth-of-type(2)"
+        ],
+        "contacts_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > a > div:nth-of-type(1) > div",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > a > div:nth-of-type(1) > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(3) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(4) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(5) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(6) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(7) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(8) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(9) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(10) > a > div > div:nth-of-type(1)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(11) > a > div > div:nth-of-type(1)"
+        ],
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(1) > h5"
+        ],
+        "companies_show": [
+          "div#radix-«r1m»-content-activity > div > div:nth-of-type(5) > div > span:nth-of-type(2) > a",
+          "div#radix-«r1m»-content-activity > div > div:nth-of-type(7) > div > span:nth-of-type(2) > a"
+        ]
+      }
+    },
+    {
+      "id": "contacts.phone_jsonb",
+      "table": "contacts",
+      "column": "phone_jsonb",
+      "definition": "Phone number(s) for this contact, stored as a list of {number, type} entries (Work/Home/Other).",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/contacts/ContactInputs.tsx",
+          "src/components/atomic-crm/contacts/ContactPersonalInfo.tsx"
+        ],
+        "also_exposed_via_view": "contacts_summary",
+        "seen_on_ui_routes": [
+          "contacts_show"
+        ],
+        "dom_tags_observed": [
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 3
+      },
+      "source_db_lineage": {
+        "table": "contacts",
+        "column": "phone_jsonb",
+        "column_type": "jsonb",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "High",
+        "pii_rationale": "Direct personal identifier — a person's phone number.",
+        "team_owner": "Sales",
+        "individual_owner_role": "Data Protection Officer",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Recommend masking in exports/reports for non-owning sales reps."
+      },
+      "selectors_by_route": {
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div > span:nth-of-type(2)",
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div > span:nth-of-type(1)"
+        ]
+      }
+    },
+    {
+      "id": "contacts.title",
+      "table": "contacts",
+      "column": "title",
+      "definition": "Job title of the contact at their company.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/contacts/ContactInputs.tsx",
+          "src/components/atomic-crm/misc/InfinitePagination.tsx",
+          "src/components/atomic-crm/settings/SettingsPage.tsx"
+        ],
+        "also_exposed_via_view": "contacts_summary",
+        "seen_on_ui_routes": [
+          "contacts_list",
+          "contacts_show"
+        ],
+        "dom_tags_observed": [
+          "div"
+        ],
+        "dom_occurrences_in_crawl": 12
+      },
+      "source_db_lineage": {
+        "table": "contacts",
+        "column": "title",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "Low",
+        "pii_rationale": "Professional information about a named individual — not deeply sensitive alone, but combines with name/company for identification.",
+        "team_owner": "Sales",
+        "individual_owner_role": "Sales Rep",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Standard B2B professional data, low risk in this context."
+      },
+      "selectors_by_route": {
+        "contacts_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > a > div:nth-of-type(1) > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(3) > a > div > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(4) > a > div > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(5) > a > div > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(6) > a > div > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(7) > a > div > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(8) > a > div > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(9) > a > div > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(10) > a > div > div:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(11) > a > div > div:nth-of-type(2)"
+        ],
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(1) > div"
+        ]
+      }
+    },
+    {
+      "id": "deals.category",
+      "table": "deals",
+      "column": "category",
+      "definition": "Business category of the deal (e.g. New Business, Expansion, Renewal).",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/deals/DealCard.tsx",
+          "src/components/atomic-crm/deals/DealInputs.tsx",
+          "src/components/atomic-crm/deals/DealList.tsx"
+        ],
+        "also_exposed_via_view": null,
+        "seen_on_ui_routes": [
+          "deals_list",
+          "deals_show"
+        ],
+        "dom_tags_observed": [
+          "p",
+          "span"
+        ],
+        "dom_occurrences_in_crawl": 6
+      },
+      "source_db_lineage": {
+        "table": "deals",
+        "column": "category",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Business classification, no personal data.",
+        "team_owner": "Sales",
+        "individual_owner_role": "VP of Sales",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Used for pipeline reporting and forecasting segmentation."
+      },
+      "selectors_by_route": {
+        "deals_list": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p"
+        ],
+        "deals_show": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p",
+          "div#radix-«r2h» > div > div > div:nth-of-type(2) > div:nth-of-type(3) > span:nth-of-type(2)",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p"
+        ]
+      }
+    },
+    {
+      "id": "deals.description",
+      "table": "deals",
+      "column": "description",
+      "definition": "Free-text description of the deal — what's being sold, context, and status.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyInputs.tsx",
+          "src/components/atomic-crm/deals/DealInputs.tsx"
+        ],
+        "also_exposed_via_view": null,
+        "seen_on_ui_routes": [
+          "deals_show"
+        ],
+        "dom_tags_observed": [
+          "p"
+        ],
+        "dom_occurrences_in_crawl": 2
+      },
+      "source_db_lineage": {
+        "table": "deals",
+        "column": "description",
+        "column_type": "text",
+        "nullable": true,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Business deal context, no personal data by design — free text, so a rep could paste personal info by mistake.",
+        "team_owner": "Sales",
+        "individual_owner_role": "VP of Sales",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Free-text field: periodic spot-check recommended, same caveat as companies.description."
+      },
+      "selectors_by_route": {
+        "deals_show": [
+          "div#radix-«r2h» > div > div > div:nth-of-type(3) > p"
+        ]
+      }
+    },
+    {
+      "id": "deals.name",
+      "table": "deals",
+      "column": "name",
+      "definition": "Short title identifying the deal, shown throughout the pipeline and Kanban board.",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyInputs.tsx",
+          "src/components/atomic-crm/contacts/ContactListContent.tsx",
+          "src/components/atomic-crm/contacts/ContactShow.tsx",
+          "src/components/atomic-crm/contacts/TagsList.tsx",
+          "src/components/atomic-crm/dashboard/LatestNotes.tsx",
+          "src/components/atomic-crm/deals/DealInputs.tsx"
+        ],
+        "also_exposed_via_view": null,
+        "seen_on_ui_routes": [
+          "companies_show",
+          "deals_list",
+          "deals_show"
+        ],
+        "dom_tags_observed": [
+          "a",
+          "p",
+          "h2"
+        ],
+        "dom_occurrences_in_crawl": 24
+      },
+      "source_db_lineage": {
+        "table": "deals",
+        "column": "name",
+        "column_type": "text",
+        "nullable": false,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Business deal identifier, no personal data.",
+        "team_owner": "Sales",
+        "individual_owner_role": "VP of Sales",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Primary identifier for the deals pipeline — high visibility field."
+      },
+      "selectors_by_route": {
+        "companies_show": [
+          "div#radix-«r1m»-content-activity > div > div:nth-of-type(3) > div > span:nth-of-type(1) > a"
+        ],
+        "deals_list": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p"
+        ],
+        "deals_show": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p",
+          "div#radix-«r2h» > div > div > div:nth-of-type(1) > div:nth-of-type(1) > h2",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p",
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(6) > div:nth-of-type(2) > div > div > div > div > p"
+        ]
+      }
+    },
+    {
+      "id": "tags.name",
+      "table": "tags",
+      "column": "name",
+      "definition": "Label text for a tag used to categorize contacts (e.g. 'Hot Lead', 'VIP').",
+      "is_calculated": false,
+      "calculation_rule": null,
+      "dependencies": {
+        "rendered_by_components": [
+          "src/components/atomic-crm/companies/CompanyInputs.tsx",
+          "src/components/atomic-crm/contacts/ContactListContent.tsx",
+          "src/components/atomic-crm/contacts/ContactShow.tsx",
+          "src/components/atomic-crm/contacts/TagsList.tsx",
+          "src/components/atomic-crm/dashboard/LatestNotes.tsx",
+          "src/components/atomic-crm/deals/DealInputs.tsx"
+        ],
+        "also_exposed_via_view": null,
+        "seen_on_ui_routes": [
+          "contacts_list",
+          "contacts_show",
+          "companies_show",
+          "deals_list",
+          "deals_show"
+        ],
+        "dom_tags_observed": [
+          "span",
+          "a",
+          "p",
+          "h2"
+        ],
+        "dom_occurrences_in_crawl": 11
+      },
+      "source_db_lineage": {
+        "table": "tags",
+        "column": "name",
+        "column_type": "text",
+        "nullable": false,
+        "foreign_key_to": null
+      },
+      "governance": {
+        "pii_level": "None",
+        "pii_rationale": "Categorical label, no personal data.",
+        "team_owner": "Sales Operations",
+        "individual_owner_role": "RevOps Manager",
+        "certification_status": "AUTO_GENERATED",
+        "last_verified": null,
+        "governance_notes": "Shared taxonomy across the whole team — recommend a light approval process before adding new tag values to avoid sprawl."
+      },
+      "selectors_by_route": {
+        "contacts_list": [
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > div > button:nth-of-type(1) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > div > button:nth-of-type(2) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > div > button:nth-of-type(3) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > div > button:nth-of-type(4) > span",
+          "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > div > button:nth-of-type(5) > span"
+        ],
+        "contacts_show": [
+          "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(1) > span"
+        ],
+        "companies_show": [
+          "div#radix-«r1m»-content-activity > div > div:nth-of-type(3) > div > span:nth-of-type(1) > a"
+        ],
+        "deals_list": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p"
+        ],
+        "deals_show": [
+          "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p",
+          "div#radix-«r2h» > div > div > div:nth-of-type(1) > div:nth-of-type(1) > h2",
+          "div#radix-«r2h» > div > div > div:nth-of-type(3) > p"
+        ]
+      }
+    }
+  ]
+}
