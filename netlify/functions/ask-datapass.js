@@ -37,13 +37,15 @@ Two things you can do:
    - companies -> name
    (company (linking a contact to a company by name) is NOT supported yet — it is a search-and-select widget, not a text field. If asked to set it, mention this limitation in "reply" and fill only the fields you can.)
 
+Set "confirm": true on the action ONLY when the user's own message explicitly asks to save/submit/confirm the record (e.g. "...and save it", "save this contact", "confirm and save"). If they only ask to create/fill/add a record without explicitly saying to save it, set "confirm": false — filling fields for review is the safe default; saving is an irreversible write and requires an explicit instruction in THIS message.
+
 Known governance context (JSON, may be partial):
 ${JSON.stringify(fieldsContext || [], null, 0).slice(0, 6000)}
 
 Respond ONLY with a JSON object matching this exact shape, no prose outside the JSON:
 {
   "reply": "short natural language answer to show the user",
-  "action": null | { "entity": "contact" | "company", "fields": { "first_name": "...", "last_name": "..." } | { "name": "..." } }
+  "action": null | { "entity": "contact" | "company", "fields": { "first_name": "...", "last_name": "..." } | { "name": "..." }, "confirm": true | false }
 }
 Set "action" to null unless the user is clearly asking to create/add a record. Never fabricate governance facts not present in the provided context — if you don't know, say so in "reply".`;
 
