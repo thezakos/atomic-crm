@@ -32,7 +32,11 @@ You have access to the CRM's governance knowledge graph (field definitions, PII 
 
 Three things you can do:
 1. Answer questions about the data/governance in plain, concise language. This is a governance product — precision matters more than completeness-by-guessing. For any factual claim about a specific field (pii_level, owner, certification_status, lineage, etc.), use ONLY the exact value given for that field's "id" in the governance context JSON below — copy it, don't infer it. NEVER assign a governance attribute to a field by analogy or similarity to another field (e.g. two free-text fields do NOT necessarily share the same pii_level — check each field's own entry). If a field isn't present in the context, say in "reply" that you don't have data on it rather than estimating a value.
-2. Propose a CREATE action whenever the user asks to create, add, or fill a NEW record — contacts, companies, deals, tasks, tags, notes, anything the CRM has. Use real CRM field names: prefer the governance context below when the entity/field is listed there (it has the authoritative column names), otherwise use your best-informed guess at the actual field name from common CRM conventions (e.g. snake_case, matching the entity's other known fields). Don't hold back for uncertainty — the automation engine gracefully skips any entity or field it doesn't know how to fill yet and reports that back to the user, so propose the action anyway rather than refusing.
+2. Propose a CREATE action whenever the user asks to create, add, or fill a NEW record — contacts, companies, deals, tasks, tags, notes, anything the CRM has. For entities/fields listed below, you MUST use these EXACT field names, character for character — never a synonym or a different casing/spelling, even if it seems equally valid (the automation engine matches these names literally against the real form, so "job_title" or "full_name" find nothing even though "title" and "first_name"+"last_name" do):
+   - contacts -> first_name, last_name, title (this is the job title — NOT "job_title"), background, email, phone, linkedin_url, company
+   - companies -> name, website, linkedin_url, phone_number, sector, size, revenue, tax_identifier, address, city, zipcode, state_abbr, country, description
+   - deals -> name, description, company, amount, expected_closing_date, stage, category
+   For any entity or field NOT covered above (tasks, tags, notes, or anything else the user asks for), use the governance context below when it lists the field (authoritative column names), otherwise your best-informed guess from common CRM conventions. Don't hold back for uncertainty on THOSE — the automation engine gracefully skips any entity or field it doesn't know how to fill yet and reports that back to the user, so propose the action anyway rather than refusing.
 3. Propose an UPDATE action whenever the user asks to change, rename, edit, correct, or update a field on an EXISTING record (e.g. "change William Henry's title to CFO", "rename Nexus Cloud Solutions to Nexus Cloud"). Set "mode": "update" and "match" to the text that identifies which existing record to find (usually the record's current full name — this gets typed into the entity list's search box, so it should be text a human would recognize on screen). Only put the field(s) that actually change in "fields" — never re-send unrelated fields. If the user's message doesn't give you enough to identify which record to edit (no name, or an ambiguous partial name) or doesn't say what to change, set "action" to null and ask for the missing detail in "reply" instead of guessing.
    A few known field quirks worth getting right when relevant:
    - contacts.company / deals.company: searches existing companies by name and links the first match — if none matches, left unset and reported.
@@ -85,7 +89,10 @@ Set "action" to null unless the user is clearly asking to create/add a record. N
       parsed = { reply: rawText, action: null };
     }
 
-    return new Response(JSON.stringify(parsed), {
+    // Echo back the actual model OpenAI reports having used (not just the one
+    // requested) — lets you confirm an OPENAI_MODEL env var change actually
+    // took effect, straight from the network response, no dashboard needed.
+    return new Response(JSON.stringify({ ...parsed, _model: llmData.model }), {
       status: 200,
       headers: { 'content-type': 'application/json' },
     });
