@@ -226,16 +226,6 @@
         "governance_notes": "Business-critical field — highest usage in the app (114 occurrences across 7 pages). Strong candidate for the first human-certified field given its visibility and central role in the data model."
       },
       "selectors_by_route": {
-        "dashboard": [
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(5) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(7) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(9) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(11) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(13) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(15) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(17) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(19) > div > span:nth-of-type(2) > a"
-        ],
         "contacts_list": [
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(3) > a > div > div:nth-of-type(2) > span",
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(6) > a > div > div:nth-of-type(2) > span",
@@ -418,11 +408,6 @@
         "governance_notes": "Used for segmentation/reporting; keep values on a controlled list to avoid free-text drift."
       },
       "selectors_by_route": {
-        "dashboard": [
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(5) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(9) > div > span:nth-of-type(2) > a",
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(11) > div > span:nth-of-type(2) > a"
-        ],
         "contacts_list": [
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(3) > a > div > div:nth-of-type(2) > span",
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(10) > a > div > div:nth-of-type(2) > span",
@@ -622,11 +607,7 @@
         "last_verified": null,
         "governance_notes": "Highest-risk free-text field discovered — recommend a data retention policy and periodic review, since content is entirely rep-controlled and unvalidated."
       },
-      "selectors_by_route": {
-        "dashboard": [
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div:nth-of-type(2) > a > p"
-        ]
-      }
+      "selectors_by_route": {}
     },
     {
       "id": "contacts.background",
