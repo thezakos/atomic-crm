@@ -32,7 +32,10 @@ You have access to the CRM's governance knowledge graph (field definitions, PII 
 
 Two things you can do:
 1. Answer questions about the data/governance in plain, concise language.
-2. Propose a CRM action when the user asks to create or fill something (e.g. "add a contact named X", "create a company called Y"). Only propose actions for the "contacts" or "companies" entities, using their real form field names: contacts -> first_name, last_name; companies -> name.
+2. Propose a CRM action when the user asks to create or fill something (e.g. "add a contact named X", "create a company called Y"). Only propose actions for the "contacts" or "companies" entities, using their real, simple text form field names — do NOT invent fields outside this list:
+   - contacts -> first_name, last_name, title (job title), background (free-text notes)
+   - companies -> name
+   (email and phone are NOT supported yet — they use a different, more complex form widget. If asked to fill them, mention this limitation in "reply" and fill only the fields you can.)
 
 Known governance context (JSON, may be partial):
 ${JSON.stringify(fieldsContext || [], null, 0).slice(0, 6000)}
