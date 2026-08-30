@@ -262,8 +262,7 @@
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(8) > div > div:nth-of-type(1) > div > h6"
         ],
         "companies_show": [
-          "main#main-content > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > h5",
-          "div#radix-«r1m»-content-activity > div > div:nth-of-type(1) > div > span:nth-of-type(2) > a"
+          "main#main-content > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > h5"
         ],
         "deals_list": [
           "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div > p > span",
@@ -741,8 +740,7 @@
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a:nth-of-type(7) > div > div:nth-of-type(1) > div > h6"
         ],
         "companies_show": [
-          "main#main-content > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > h5",
-          "div#radix-«r1m»-content-activity > div > div:nth-of-type(1) > div > span:nth-of-type(2) > a"
+          "main#main-content > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > h5"
         ],
         "deals_list": [
           "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div > p > span",
@@ -862,10 +860,6 @@
         "governance_notes": "Note: react_components list also includes sales/ files because the 'sales' table (internal users) has its own unrelated first_name column with the same name — governance here is scoped strictly to contacts.first_name."
       },
       "selectors_by_route": {
-        "dashboard": [
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > div > span:nth-of-type(2) > a",
-          "div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > div > span:nth-of-type(2) > span > a > span:nth-of-type(1)"
-        ],
         "contacts_list": [
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > a > div:nth-of-type(1) > div",
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > a > div:nth-of-type(1) > div:nth-of-type(1)",
@@ -881,10 +875,6 @@
         ],
         "contacts_show": [
           "main#main-content > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(1) > h5"
-        ],
-        "companies_show": [
-          "div#radix-«r1m»-content-activity > div > div:nth-of-type(5) > div > span:nth-of-type(2) > a",
-          "div#radix-«r1m»-content-activity > div > div:nth-of-type(7) > div > span:nth-of-type(2) > a"
         ]
       }
     },
@@ -937,10 +927,6 @@
         "governance_notes": "Same file-attribution caveat as contacts.first_name (sales/ files reflect the sales table's own unrelated column, not this one)."
       },
       "selectors_by_route": {
-        "dashboard": [
-          "main#main-content > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > div > span:nth-of-type(2) > a",
-          "div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > div > span:nth-of-type(2) > span > a > span:nth-of-type(2)"
-        ],
         "contacts_list": [
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > a > div:nth-of-type(1) > div",
           "main#main-content > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > a > div:nth-of-type(1) > div:nth-of-type(1)",
@@ -956,10 +942,6 @@
         ],
         "contacts_show": [
           "main#main-content > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(1) > h5"
-        ],
-        "companies_show": [
-          "div#radix-«r1m»-content-activity > div > div:nth-of-type(5) > div > span:nth-of-type(2) > a",
-          "div#radix-«r1m»-content-activity > div > div:nth-of-type(7) > div > span:nth-of-type(2) > a"
         ]
       }
     },
@@ -1205,9 +1187,6 @@
         "governance_notes": "Primary identifier for the deals pipeline — high visibility field."
       },
       "selectors_by_route": {
-        "companies_show": [
-          "div#radix-«r1m»-content-activity > div > div:nth-of-type(3) > div > span:nth-of-type(1) > a"
-        ],
         "deals_list": [
           "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > div > p",
           "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p",
@@ -1291,9 +1270,6 @@
         ],
         "contacts_show": [
           "main#main-content > div > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(1) > span"
-        ],
-        "companies_show": [
-          "div#radix-«r1m»-content-activity > div > div:nth-of-type(3) > div > span:nth-of-type(1) > a"
         ],
         "deals_list": [
           "main#main-content > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > div > div > p"
