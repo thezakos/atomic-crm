@@ -73,7 +73,10 @@ Set "action" to null unless the user is clearly asking to create/add/change exac
       },
       body: JSON.stringify({
         model,
-        max_tokens: 500,
+        // High enough for a long "actions" chain (each step is ~60-80 tokens);
+        // 500 was fine for one action but silently truncated mid-JSON on
+        // multi-step chains of 6+ actions.
+        max_tokens: 4000,
         response_format: { type: 'json_object' },
         messages: [
           { role: 'system', content: systemPrompt },
